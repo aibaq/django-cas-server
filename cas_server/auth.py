@@ -500,7 +500,7 @@ class DjangoIDAuthUser(DjangoAuthUser):
             self.user = User.objects.get(id=username)
         except User.DoesNotExist:
             pass
-        super(DjangoIDAuthUser, self).__init__(username)
+        super(DjangoAuthUser, self).__init__(username)
 
 
 class CASFederateAuth(AuthUser):

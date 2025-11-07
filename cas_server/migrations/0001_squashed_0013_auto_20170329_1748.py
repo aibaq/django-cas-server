@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('sessions', '0001_initial'),
+        # we don't use django sessions, so this migration causes migration conflict
+        # ('sessions', '0001_initial'),
     ]
 
     operations = [

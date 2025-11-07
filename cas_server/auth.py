@@ -492,6 +492,17 @@ class DjangoAuthUser(AuthUser):  # pragma: no cover
             return {}
 
 
+class DjangoIDAuthUser(DjangoAuthUser):
+
+    def __init__(self, username):
+        User = get_user_model()
+        try:
+            self.user = User.objects.get(id=username)
+        except User.DoesNotExist:
+            pass
+        super(DjangoIDAuthUser, self).__init__(username)
+
+
 class CASFederateAuth(AuthUser):
     """
         Authentication class used then CAS_FEDERATE is True
